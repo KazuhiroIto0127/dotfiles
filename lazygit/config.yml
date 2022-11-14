@@ -1,0 +1,20 @@
+gui:
+  language: 'en'
+  showIcons: true
+  theme:
+    selectedLineBgColor:
+      - underline
+    selectedRangeBgColor:
+      - underline
+git:
+  autofetch: true
+  merging:
+    args: ""
+    manualcommit: false
+  paging:
+    colorArg: always
+    pager: delta --dark
+  refresher:
+    refreshInterval: 3
+os:
+  editCommand: 'nvim'

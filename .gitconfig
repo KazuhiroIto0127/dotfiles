@@ -1,0 +1,75 @@
+[user]
+	name = KazuhiroIto0127
+	email = kazuhiroito0127@gmail.com
+
+[core]
+	editor = /usr/local/bin/nvim
+	excludesfile = ~/.gitignore_global
+  pager = delta
+  log = delta
+  reflog = delta
+  show = delta
+
+[color]
+  ui = true
+
+[mergetool]
+	keepBackup = false
+
+[secrets]
+	providers = git secrets --aws-provider
+	patterns = [A-Z0-9]{20}
+	patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
+	patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
+	allowed = AKIAIOSFODNN7EXAMPLE
+	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+	patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
+
+[init]
+	templatedir = ~/.git-templates/git-secrets
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+
+[delta]
+    diff-so-fancy = true
+    side-by-side = true
+    line-numbers = true
+    keep-plus-minus-markers=true
+    syntax-theme = Dracula
+    plus-style = syntax "#003800"
+    minus-style = syntax "#3f0001"
+    ; features = decorations
+    ; syntax-theme = Github
+    navigate = true
+    ; light = false
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-decoration-style = cyan box ul
+
+[delta "line-numbers"]
+    line-numbers-left-style = cyan
+    line-numbers-right-style = cyan
+    line-numbers-minus-style = 124
+    line-numbers-plus-style = 28
+
+; [delta "interactive"]
+;     keep-plus-minus-markers = true
+;
+; [delta "decorations"]
+;     commit-decoration-style = blue ol
+;     commit-style = raw
+;     file-style = omit
+;     hunk-header-decoration-style = blue box
+;     hunk-header-file-style = red
+;     hunk-header-line-number-style = "#067a00"
+;     hunk-header-style = file line-number syntax
