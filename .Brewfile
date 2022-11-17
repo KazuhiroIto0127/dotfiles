@@ -13,6 +13,7 @@ tap "wez/wezterm"
 brew "bat"
 brew "diff-so-fancy"
 brew "direnv"
+brew "duf"
 brew "dust"
 brew "fzf"
 brew "ghq"
@@ -41,8 +42,16 @@ brew "zoxide"
 
 # GUIアプリ
 cask "google-chrome"
+cask "firefox"
 cask "docker"
 cask "font-hack-nerd-font"
 cask "wezterm"
 cask "postman"
 cask "warp"
+cask "karabiner-elements"
+cask "iterm2"
+cask "coteditor"
+cask '1password'
+cask 'gitup'
+cask "raycast"
+
