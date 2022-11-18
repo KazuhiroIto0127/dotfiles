@@ -48,11 +48,12 @@ cmp.setup({
   }
 })
 
-cmp.setup.cmdline(':', {
-  sources = {
-    { name = 'cmdline' }
-  }
-})
+-- コマンドのサジェストはnoiceで行うためコメントアウト
+-- cmp.setup.cmdline(':', {
+--   sources = {
+--     { name = 'cmdline' }
+--   }
+-- })
 
 tabnine.setup({
   max_lines = 1000,

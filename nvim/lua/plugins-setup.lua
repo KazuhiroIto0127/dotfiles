@@ -21,11 +21,19 @@ packer.startup(function(use)
     end
   })
   use "sainnhe/sonokai"
-  -- use "folke/tokyonight.nvim"
   use "rebelot/kanagawa.nvim"
+  -- use "folke/tokyonight.nvim"
   -- use "EdenEast/nightfox.nvim"
   -- use { "ellisonleao/gruvbox.nvim" }
 
+  -- 通知やコマンド入力をポップアップでかっこよく表示できる
+  use {
+    'folke/noice.nvim',
+    requires = {
+      'MunifTanjim/nui.nvim',
+      'rcarriga/nvim-notify',
+    },
+  }
 
   use 'kyazdani42/nvim-web-devicons' -- File icons
   use 'hoob3rt/lualine.nvim' -- Statusline
@@ -42,6 +50,7 @@ packer.startup(function(use)
   use("petertriho/nvim-scrollbar") -- スクロールバーを表示する
   use "lukas-reineke/indent-blankline.nvim" -- インデント表示
 
+  use 'akinsho/toggleterm.nvim' -- nvimからterminalを開ける
 
   -- スニペット
   use 'L3MON4D3/LuaSnip' -- Snippet

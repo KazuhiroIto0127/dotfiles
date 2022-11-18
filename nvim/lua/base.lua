@@ -20,7 +20,7 @@ vim.opt.wildignore:append { '*/node_modules/*' }
 vim.opt.backup = false
 
 -- Cursor
-vim.opt.whichwrap = 'b,s,h,l' -- 行頭・行末でもhjklで前後の行に移動
+-- vim.opt.whichwrap = 'b,s,h,l' -- 行頭・行末でもhjklで前後の行に移動 → いらない
 vim.opt.scrolloff = 10
 
 -- Mouse

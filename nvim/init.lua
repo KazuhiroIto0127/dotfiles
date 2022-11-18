@@ -28,6 +28,8 @@ require('plugins.auto-session')
 require('plugins.session-lens')
 require('plugins.dashboard')
 require('plugins.vgit')
+require('plugins.noice')
+require('plugins.toggleterm')
 
 local has = function(x)
   return vim.fn.has(x) == 1

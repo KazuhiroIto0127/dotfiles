@@ -44,6 +44,8 @@ keymap.set("n", 'Q', "<Nop>", { noremap = true })
 keymap.set("n", '<C-q>', "<Nop>", { noremap = true })
 -- tmuxのprefixにしたから消す。（vimにおける一旦ポーズ）
 keymap.set("n", '<C-z>', "<Nop>", { noremap = true })
+-- toggletermのprefixにするから消す。
+keymap.set("n", '<C-t>', "<Nop>", { noremap = true })
 
 -- neovim設定をリフレッシュ
 keymap.set("n", '<leader>r', ":luafile %<CR>")
