@@ -134,13 +134,11 @@ packer.startup(function(use)
     }
   }
   -- dashboard
-  use { 'glepnir/dashboard-nvim' }
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+  }
 
   -- オートセッション
-  use { 'rmagatti/auto-session' }
-  use {
-    'rmagatti/session-lens',
-    requires = { 'rmagatti/auto-session', 'nvim-telescope/telescope.nvim' },
-  }
 
 end)

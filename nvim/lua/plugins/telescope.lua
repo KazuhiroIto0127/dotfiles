@@ -72,15 +72,12 @@ telescope.setup {
       ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
       disable_devicons = false,
     },
-    session_lens = {
-    }
   },
 }
 
 require "telescope".load_extension("frecency")
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('ui-select')
-require("telescope").load_extension("session-lens")
 
 
 local opts = { noremap = true, silent = true }
@@ -94,6 +91,4 @@ vim.keymap.set('n', '<Space>1', '<cmd>lua require("telescope.builtin").symbols()
 vim.keymap.set('n', '<Space>x', '<cmd>lua require("telescope.builtin").git_status()<cr>', opts)
 vim.keymap.set('n', '<Space>c', '<cmd>lua require("telescope.builtin").git_commits()<cr>', opts)
 vim.keymap.set("n", "<Space><Space>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>",
-  { noremap = true, silent = true })
-vim.keymap.set("n", "<Space>S", "<Cmd>lua require('session-lens').search_session()<CR>",
   { noremap = true, silent = true })
