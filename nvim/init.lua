@@ -28,6 +28,7 @@ require('plugins.alpha')
 require('plugins.vgit')
 require('plugins.noice')
 require('plugins.toggleterm')
+require('plugins.session_manager')
 
 local has = function(x)
   return vim.fn.has(x) == 1

@@ -84,13 +84,12 @@ packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+  use 'windwp/nvim-ts-autotag'
+  use 'windwp/nvim-autopairs'
+  use 'p00f/nvim-ts-rainbow'
 
   use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
-
-  -- auto closing
-  use 'windwp/nvim-autopairs'
-  use 'windwp/nvim-ts-autotag'
 
   use 'nvim-telescope/telescope.nvim'
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
@@ -139,6 +138,9 @@ packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
-  -- オートセッション
-
+  -- session
+  use {
+    "Shatur/neovim-session-manager",
+    requires = { "nvim-telescope/telescope.nvim" }
+  }
 end)
