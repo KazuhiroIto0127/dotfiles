@@ -26,9 +26,10 @@ require('plugins.lsp.lspsaga')
 require('plugins.lsp.lspconfig')
 require('plugins.alpha')
 require('plugins.vgit')
-require('plugins.noice')
+-- require('plugins.noice')
 require('plugins.toggleterm')
 require('plugins.session_manager')
+require('plugins.which-key')
 
 local has = function(x)
   return vim.fn.has(x) == 1

@@ -26,14 +26,15 @@ packer.startup(function(use)
   -- use "EdenEast/nightfox.nvim"
   -- use { "ellisonleao/gruvbox.nvim" }
 
+  -- ※ session-managerと共存する方法がいまのところわかっていないため使っていない
   -- 通知やコマンド入力をポップアップでかっこよく表示できる
-  use {
-    'folke/noice.nvim',
-    requires = {
-      'MunifTanjim/nui.nvim',
-      'rcarriga/nvim-notify',
-    },
-  }
+  -- use {
+  --   'folke/noice.nvim',
+  --   requires = {
+  --     'MunifTanjim/nui.nvim',
+  --     'rcarriga/nvim-notify',
+  --   },
+  -- }
 
   use 'kyazdani42/nvim-web-devicons' -- File icons
   use 'hoob3rt/lualine.nvim' -- Statusline
@@ -143,4 +144,7 @@ packer.startup(function(use)
     "Shatur/neovim-session-manager",
     requires = { "nvim-telescope/telescope.nvim" }
   }
+
+  -- keymap
+  use { "folke/which-key.nvim" }
 end)
