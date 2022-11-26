@@ -51,6 +51,7 @@ vim.opt.title = true
 vim.opt.pumheight = 10 -- ポップアップメニューの高さを１０
 vim.opt.pumblend = 10 -- 補完などに使われるポップアップメニューを半透明に表示します。
 vim.opt.winblend = 10 -- 任意の floating windows を半透明に表示します。
+vim.opt.signcolumn = "yes" -- gitsignのガタツキをなくす
 
 -- Search
 vim.opt.hlsearch = true

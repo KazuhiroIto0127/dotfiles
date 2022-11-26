@@ -29,6 +29,18 @@ ts.setup {
     'vue',
     'pug',
   },
+  autopairs = {
+    enable = true,
+  },
+  incremental_selection = {
+    enable = true,
+  },
+  rainbow = {
+    enable = true,
+    disable = { "html" },
+    extended_mode = false,
+    max_file_lines = nil,
+  },
   autotag = {
     enable = true,
   }

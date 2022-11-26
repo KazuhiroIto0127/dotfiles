@@ -3,7 +3,46 @@ if (not status) then return end
 
 neo_tree.setup({
   close_if_last_window = true,
+  popup_border_style = "rounded",
+  enable_git_status = true,
   enable_diagnostics = false,
+  default_component_configs = {
+    indent = {
+      indent_size = 2,
+      padding = 0,
+      with_markers = true,
+      indent_marker = "│",
+      last_indent_marker = "└",
+      highlight = "NeoTreeIndentMarker",
+      with_expanders = false,
+      expander_collapsed = "",
+      expander_expanded = "",
+      expander_highlight = "NeoTreeExpander",
+    },
+    icon = {
+      folder_closed = "",
+      folder_open = "",
+      folder_empty = "",
+      default = "",
+    },
+    name = {
+      trailing_slash = false,
+      use_git_status_colors = true,
+    },
+    git_status = {
+      symbols = {
+        added = "",
+        deleted = "",
+        modified = "",
+        renamed = "➜",
+        untracked = "★",
+        ignored = "◌",
+        unstaged = "✗",
+        staged = "✓",
+        conflict = "",
+      },
+    },
+  },
   sources = {
     "filesystem",
     "buffers",
@@ -52,9 +91,6 @@ neo_tree.setup({
     highlight_separator = "NeoTreeTabSeparatorInactive",
     highlight_separator_active = "NeoTreeTabSeparatorActive",
   },
-  default_component_configs = {
-    indent = { padding = 0 },
-  },
   window = {
     position = "left",
     width = 30,
@@ -74,10 +110,23 @@ neo_tree.setup({
     window = { mappings = { h = "toggle_hidden" } },
     filtered_items = {
       hide_dotfiles = false,
-      hide_gitignored = false
+      hide_gitignored = false,
+      hide_by_name = {
+        ".DS_Store",
+        "thumbs.db",
+        "node_modules",
+        "__pycache__",
+      },
     },
   },
   event_handlers = {
-    { event = "neo_tree_buffer_enter", handler = function(_) vim.opt_local.signcolumn = "auto" end },
+    {
+      event = "vim_buffer_enter",
+      handler = function(_)
+        if vim.bo.filetype == "neo-tree" then
+          vim.wo.signcolumn = "auto"
+        end
+      end,
+    },
   },
 })
