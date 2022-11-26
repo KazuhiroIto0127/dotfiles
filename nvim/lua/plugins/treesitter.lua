@@ -43,5 +43,8 @@ ts.setup {
   },
   autotag = {
     enable = true,
+  },
+  endwise = {
+    enable = true,
   }
 }

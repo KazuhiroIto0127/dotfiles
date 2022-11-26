@@ -51,6 +51,7 @@ packer.startup(function(use)
   use("petertriho/nvim-scrollbar") -- スクロールバーを表示する
   use "lukas-reineke/indent-blankline.nvim" -- インデント表示
 
+  use 'yamatsum/nvim-cursorline' -- カーソル配下の単語と同じ単語をハイライトする
   use 'akinsho/toggleterm.nvim' -- nvimからterminalを開ける
 
   -- スニペット
@@ -79,8 +80,9 @@ packer.startup(function(use)
   -- -- LSP 用の UI
   use 'glepnir/lspsaga.nvim' -- LSP 関連の足りない UI だったりコマンドだったりを追加してくれる
 
-  -- Treesitter
-  -- 言語ごとに色をつける
+  ------------------
+  -- Treesitter (言語ごとに色をつける)
+  ------------------
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
@@ -88,10 +90,14 @@ packer.startup(function(use)
   use 'windwp/nvim-ts-autotag'
   use 'windwp/nvim-autopairs'
   use 'p00f/nvim-ts-rainbow'
+  use 'RRethy/nvim-treesitter-endwise'
 
   use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
 
+  ---------------------
+  -- telescope
+  -- ------------------
   use 'nvim-telescope/telescope.nvim'
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
   use { "nvim-telescope/telescope-ui-select.nvim" }
@@ -101,9 +107,9 @@ packer.startup(function(use)
     requires = { "kkharji/sqlite.lua" }
   }
 
-  -- **********
+  -----------------
   -- git
-  -- **********
+  -----------------
   use {
     'tanvirtin/vgit.nvim',
     requires = {
@@ -122,6 +128,11 @@ packer.startup(function(use)
       require('Comment').setup()
     end
   }
+
+  -- add: ysのあとにiw)で()を追加
+  -- delete: dsのあとに) で()を削除
+  -- change: csのあとに({とすると(が{になる
+  use { "kylechui/nvim-surround" }
 
   -- ファイラー
   use {
