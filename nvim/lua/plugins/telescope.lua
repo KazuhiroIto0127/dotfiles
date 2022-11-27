@@ -81,14 +81,14 @@ require('telescope').load_extension('ui-select')
 
 
 local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<Space>f',
+vim.keymap.set('n', '<leader>f',
   '<cmd>lua require("telescope.builtin").find_files({ no_ignore = false, hidden = true})<cr>',
   opts)
-vim.keymap.set('n', '<Space>s', '<cmd>lua require("telescope.builtin").live_grep()<cr>', opts)
-vim.keymap.set('n', '<Space>b', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
-vim.keymap.set('n', '<Space>h', '<cmd>lua require("telescope.builtin").help_tags()<cr>', opts)
-vim.keymap.set('n', '<Space>1', '<cmd>lua require("telescope.builtin").symbols()<cr>', opts)
-vim.keymap.set('n', '<Space>x', '<cmd>lua require("telescope.builtin").git_status()<cr>', opts)
-vim.keymap.set('n', '<Space>c', '<cmd>lua require("telescope.builtin").git_commits()<cr>', opts)
-vim.keymap.set("n", "<Space><Space>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>",
+vim.keymap.set('n', '<leader>s', '<cmd>lua require("telescope.builtin").live_grep()<cr>', opts)
+vim.keymap.set('n', '<leader>b', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
+vim.keymap.set('n', '<leader>h', '<cmd>lua require("telescope.builtin").help_tags()<cr>', opts)
+vim.keymap.set('n', '<leader>1', '<cmd>lua require("telescope.builtin").symbols()<cr>', opts)
+vim.keymap.set('n', '<leader>x', '<cmd>lua require("telescope.builtin").git_status()<cr>', opts)
+vim.keymap.set('n', '<leader>c', '<cmd>lua require("telescope.builtin").git_commits()<cr>', opts)
+vim.keymap.set("n", "<leader><leader>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>",
   { noremap = true, silent = true })

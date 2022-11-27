@@ -15,6 +15,7 @@ vim.opt.ai = true -- Auto indent
 vim.opt.si = true -- Smart indent
 vim.opt.path:append { '**' } -- Finding files - Seach down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
+vim.opt.timeoutlen = 500
 
 -- File
 vim.opt.backup = false
