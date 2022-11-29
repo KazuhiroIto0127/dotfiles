@@ -6,7 +6,7 @@ vim.opt.fileencoding = 'utf-8'
 
 vim.opt.swapfile = false
 vim.opt.cmdheight = 1
-vim.opt.laststatus = 2
+vim.opt.laststatus = 3 -- 3・・・ステータスバーがglobalに１つになる
 vim.opt.shell = 'zsh'
 vim.opt.backupskip = '/tmp/*,/private/tmp/*'
 vim.opt.inccommand = 'split'
@@ -53,6 +53,7 @@ vim.opt.pumheight = 10 -- ポップアップメニューの高さを１０
 vim.opt.pumblend = 10 -- 補完などに使われるポップアップメニューを半透明に表示します。
 vim.opt.winblend = 10 -- 任意の floating windows を半透明に表示します。
 vim.opt.signcolumn = "yes" -- gitsignのガタツキをなくす
+vim.opt.winbar = "%f" -- 各bufferのwindowの上部に表示できる
 
 -- Search
 vim.opt.hlsearch = true
