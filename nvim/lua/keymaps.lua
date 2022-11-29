@@ -63,10 +63,10 @@ vim.api.nvim_set_keymap('n', '<S-Tab>', '<cmd>BufferLineCyclePrev<cr>', {})
 -- ---------------
 -- fzf-lua
 -- ---------------
-vim.keymap.set('n', '<leader>f', "<cmd>lua require('fzf-lua').files()<CR>")
-vim.keymap.set('n', '<leader>b', "<cmd>lua require('fzf-lua').buffers()<CR>")
+-- vim.keymap.set('n', '<leader>f', "<cmd>lua require('fzf-lua').files()<CR>")
+-- vim.keymap.set('n', '<leader>b', "<cmd>lua require('fzf-lua').buffers()<CR>")
 -- <Ctrl-G> でRegex Search（正規表現検索）とFuzzy Search（あいまい検索）を切り替えることができます。
-vim.keymap.set('n', '<leader>s', "<cmd>lua require('fzf-lua').live_grep()<CR>")
+-- vim.keymap.set('n', '<leader>s', "<cmd>lua require('fzf-lua').live_grep()<CR>")
 
 -- ---------------
 -- NeoGit
@@ -80,8 +80,11 @@ vim.keymap.set('n', '<leader>gh', "<cmd>DiffviewFileHistory %<CR>")
 -- ---------------
 -- NeoTree
 -- ---------------
-vim.keymap.set('n', '<leader>e', "<cmd>NeoTreeShowToggle<CR>")
-vim.keymap.set('n', '<leader>E', "<cmd>Neotree reveal<cr>")
+local status, _ = pcall(require, 'neo-tree')
+if (status) then
+  vim.keymap.set('n', '<leader>e', "<cmd>NeoTreeShowToggle<CR>", { desc = "Toggle Explorer" })
+  vim.keymap.set('n', '<leader>E', "<cmd>Neotree reveal<cr>", { desc = "Focus Explorer" })
+end
 
 -- ---------------
 -- smart-splits
@@ -100,4 +103,30 @@ if (status) then
   vim.keymap.set('n', '<C-j>', require('smart-splits').move_cursor_down)
   vim.keymap.set('n', '<C-k>', require('smart-splits').move_cursor_up)
   vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right)
+end
+
+-- ---------------
+-- session_manager
+-- ---------------
+local ok, _ = pcall(require, 'session_manager')
+if ok then
+  vim.keymap.set('n', '<leader>Ss', '<cmd>lua require("session_manager").save_current_session()<cr>',
+    { desc = 'Save this session' })
+  vim.keymap.set('n', '<leader>Sd', '<cmd>lua require("session_manager").delete_session()<cr>',
+    { desc = 'Delete session' })
+  vim.keymap.set('n', '<leader>Sl', '<cmd>lua require("session_manager").load_session()<cr>',
+    { desc = 'Load last session' })
+end
+
+
+-- ---------------
+-- toggleterm
+-- ---------------
+local ok, _ = pcall(require, 'toggleterm')
+if ok then
+  vim.keymap.set('n', "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", { desc = "ToggleTerm float" })
+  vim.keymap.set('n', "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>",
+    { desc = "ToggleTerm horizontal split" })
+  vim.keymap.set('n', "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>",
+    { desc = "ToggleTerm vertical split" })
 end

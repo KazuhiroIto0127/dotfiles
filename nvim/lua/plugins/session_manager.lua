@@ -25,10 +25,3 @@ vim.api.nvim_create_autocmd({ 'User' }, {
     vim.cmd([[NeoTreeClose]])
   end,
 })
-
----------------
--- keymap
----------------
-vim.keymap.set('n', '<leader>Ss', '<cmd>lua require("session_manager").save_current_session()<cr>', opts)
-vim.keymap.set('n', '<leader>Sd', '<cmd>lua require("session_manager").delete_session()<cr>', opts)
-vim.keymap.set('n', '<leader>Sl', '<cmd>lua require("session_manager").load_session()<cr>', opts)

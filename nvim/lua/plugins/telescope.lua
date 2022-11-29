@@ -81,14 +81,18 @@ require('telescope').load_extension('ui-select')
 
 
 local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<leader>f',
+vim.keymap.set('n', '<leader>ff',
   '<cmd>lua require("telescope.builtin").find_files({ no_ignore = false, hidden = true})<cr>',
-  opts)
-vim.keymap.set('n', '<leader>s', '<cmd>lua require("telescope.builtin").live_grep()<cr>', opts)
-vim.keymap.set('n', '<leader>b', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
-vim.keymap.set('n', '<leader>h', '<cmd>lua require("telescope.builtin").help_tags()<cr>', opts)
-vim.keymap.set('n', '<leader>1', '<cmd>lua require("telescope.builtin").symbols()<cr>', opts)
-vim.keymap.set('n', '<leader>x', '<cmd>lua require("telescope.builtin").git_status()<cr>', opts)
-vim.keymap.set('n', '<leader>c', '<cmd>lua require("telescope.builtin").git_commits()<cr>', opts)
-vim.keymap.set("n", "<leader><leader>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>",
+  { noremap = true, silent = true, desc = "Search files" })
+vim.keymap.set('n', '<leader>fs', '<cmd>lua require("telescope.builtin").live_grep()<cr>',
+  { noremap = true, silent = true, desc = "Search words" })
+vim.keymap.set('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>',
+  { noremap = true, silent = true, desc = "Search buffers" })
+vim.keymap.set('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>',
+  { noremap = true, silent = true, desc = "Search help" })
+vim.keymap.set('n', '<leader>f1', '<cmd>lua require("telescope.builtin").symbols()<cr>', opts)
+vim.keymap.set('n', '<leader>fx', '<cmd>lua require("telescope.builtin").git_status()<cr>',
+  { noremap = true, silent = true, desc = "Git status" })
+vim.keymap.set('n', '<leader>fc', '<cmd>lua require("telescope.builtin").git_commits()<cr>', opts)
+vim.keymap.set("n", "<leader>f<leader>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>",
   { noremap = true, silent = true })

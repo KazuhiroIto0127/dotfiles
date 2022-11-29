@@ -47,12 +47,12 @@ dashboard.section.header.val = {
 dashboard.section.header.opts.hl = "AlphaHeader"
 
 dashboard.section.buttons.val = {
-  button("SPC f d", "  Find directory", ":Telescope find_files<CR>"),
+  button("SPC f f", "  Find directory", ":Telescope find_files<CR>"),
   button("SPC f o", "  Recents", ":Telescope oldfiles<CR>"),
-  button("SPC f w", "  Find Word", ":Telescope live_grep<CR>"),
+  button("SPC f s", "  Find Word", ":Telescope live_grep<CR>"),
   button("SPC f n", "  New File", ":ene <BAR> startinsert<CR><ESC>"),
   button("SPC f m", "  Bookmarks", ":Telescope marks<CR>"),
-  button("SPC f s", "  Search sessions", ":SessionManager load_session<cr>"),
+  button("SPC S l", "  Search sessions", ":SessionManager load_session<cr>"),
 }
 dashboard.section.buttons.opts.hl = "AlphaCenter"
 dashboard.section.buttons.opts.hl_shortcut = "AlphaShortcut"

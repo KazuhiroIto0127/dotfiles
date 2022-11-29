@@ -2,8 +2,30 @@ local state, wk = pcall(require, 'which-key')
 if (not state) then return end
 
 wk.setup {
+  plugins = {
+    spelling = { enabled = true },
+    presets = { operators = false },
+  },
+  window = {
+    border = "rounded",
+    padding = { 2, 2, 2, 2 },
+  },
+  disable = { filetypes = { "TelescopePrompt" } },
 }
 
+
+wk.register({
+  ["<leader>"] = {
+    f = { name = "File" },
+    g = { name = "Git" },
+    s = { name = "Search" },
+    S = { name = "Session" },
+    t = { name = "Terminal" },
+    p = { name = "Packages" },
+    l = { name = "LSP" },
+    u = { name = "UI" },
+  },
+})
 
 -- wk.register({
 --   f = {
