@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 #####################################################################
 # options
 #####################################################################
@@ -176,3 +178,6 @@ bindkey -e # tmuxでctrl-aとctrl-eが使えない問題の対応
 # startship
 # https://starship.rs/ja-JP/
 eval "$(starship init zsh)"
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
