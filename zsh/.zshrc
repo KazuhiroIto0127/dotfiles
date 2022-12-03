@@ -74,6 +74,9 @@ export PATH=$PATH:$GOROOT/bin
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="$HOME/.nodenv/bin:$PATH"
 
+# rustのライブラリにパスを通す
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # 1passwodでsshの管理をできるようにする
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 

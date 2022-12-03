@@ -7,6 +7,7 @@ function makeSymLink() {
   echo "Create $1 to $2 symbolic link."
 }
 
+makeSymLink $(pwd)/alacritty  ~/.config/alacritty
 makeSymLink $(pwd)/tmux/.tmux.conf  ~/.tmux.conf
 makeSymLink $(pwd)/lazygit  ~/.config/lazygit
 makeSymLink $(pwd)/zsh/.zshrc ~/.zshrc
