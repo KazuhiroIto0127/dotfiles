@@ -199,3 +199,14 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 [ -f "/Users/itoukazuhiro/.ghcup/env" ] && . "/Users/itoukazuhiro/.ghcup/env" # ghcup-env
 # Added by Windsurf
 export PATH="/Users/itoukazuhiro/.codeium/windsurf/bin:$PATH"
+
+#####################################################################
+# fzf設定
+#####################################################################
+__fzf_history_widget() {
+  BUFFER=$(history 1 | fzf --tac --height 40% --reverse | sed 's/ *[0-9]* *//')
+  CURSOR=${#BUFFER}
+  zle redisplay
+}
+zle -N __fzf_history_widget
+bindkey '^R' __fzf_history_widget
