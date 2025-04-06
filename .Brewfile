@@ -41,6 +41,7 @@ brew "tokei"
 brew "tree"
 brew "xsv"
 brew "zoxide"
+brew "sqlite3"
 
 # GUIアプリ
 cask "google-chrome"
