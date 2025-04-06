@@ -69,10 +69,12 @@ path=(
   /Library/Apple/usr/bin
 )
 # goのライブラリにパスを通す
-export GOROOT=$HOME/go
+export GOROOT=/opt/homebrew/opt/go/libexec
 export PATH=$PATH:$GOROOT/bin
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="$HOME/.nodenv/bin:$PATH"
+# bunを使えるようにする
+export PATH="$HOME/.bun/bin:$PATH"
 
 # rustのライブラリにパスを通す
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -89,6 +91,8 @@ eval "$(nodenv init -)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 # zコマンドを使えるように
 eval "$(zoxide init zsh)"
+
+eval "$(rbenv init -)"
 #####################################################################
 # fzf設定
 #####################################################################
@@ -166,7 +170,7 @@ zinit snippet OMZP::git
 zinit snippet OMZP::common-aliases
 zinit snippet OMZP::rails
 zinit snippet OMZP::rbenv
-zinit snippet OMZP::docker
+# zinit snippet OMZP::docker
 zinit snippet OMZP::docker-compose
 
 # tmuxを起動したらすぐ使えるようにする
@@ -184,3 +188,14 @@ eval "$(starship init zsh)"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+
+# bun completions
+[ -s "/Users/itoukazuhiro/.bun/_bun" ] && source "/Users/itoukazuhiro/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+[ -f "/Users/itoukazuhiro/.ghcup/env" ] && . "/Users/itoukazuhiro/.ghcup/env" # ghcup-env
+# Added by Windsurf
+export PATH="/Users/itoukazuhiro/.codeium/windsurf/bin:$PATH"
