@@ -72,7 +72,7 @@ vim.opt.wildoptions = 'pum'
 
 -- colorscheme
 vim.opt.background = 'dark'
-vim.cmd([[colorscheme github_dark_default]])
+vim.cmd([[colorscheme github_dark_high_contrast]])
 
 -- cmp-spell用設定
 vim.opt.spell = true

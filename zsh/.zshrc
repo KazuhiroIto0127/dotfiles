@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 #####################################################################
 # options
 #####################################################################
@@ -40,6 +38,11 @@ alias cat='bat'
 alias ping='prettyping --nolegend'
 alias top="sudo htop"
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+# tree
+alias tree="tree -L 3 -a -I '.git' --charset X "
+alias dtree="tree -L 3 -a -d -I '.git' --charset X "
+# lazygit
+alias lg="lazygit"
 
 #####################################################################
 # 環境変数
@@ -69,7 +72,7 @@ path=(
   /Library/Apple/usr/bin
 )
 # goのライブラリにパスを通す
-export GOROOT=$HOME/go
+export GOROOT=/opt/homebrew/opt/go/libexec
 export PATH=$PATH:$GOROOT/bin
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="$HOME/.nodenv/bin:$PATH"
@@ -86,9 +89,13 @@ export XDG_CONFIG_HOME="$HOME/.config"
 eval "$(direnv hook zsh)"
 eval "$(nodenv init -)"
 # Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [ -x "/opt/homebrew/bin/brew" ] && [ -r "$PWD" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 # zコマンドを使えるように
 eval "$(zoxide init zsh)"
+
+eval "$(rbenv init -)"
 #####################################################################
 # fzf設定
 #####################################################################
@@ -166,7 +173,7 @@ zinit snippet OMZP::git
 zinit snippet OMZP::common-aliases
 zinit snippet OMZP::rails
 zinit snippet OMZP::rbenv
-zinit snippet OMZP::docker
+# zinit snippet OMZP::docker
 zinit snippet OMZP::docker-compose
 
 # tmuxを起動したらすぐ使えるようにする
@@ -182,5 +189,37 @@ bindkey -e # tmuxでctrl-aとctrl-eが使えない問題の対応
 # https://starship.rs/ja-JP/
 eval "$(starship init zsh)"
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+# bun completions
+[ -s "/Users/itoukazuhiro/.bun/_bun" ] && source "/Users/itoukazuhiro/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+[ -f "/Users/itoukazuhiro/.ghcup/env" ] && . "/Users/itoukazuhiro/.ghcup/env" # ghcup-env
+# Added by Windsurf
+export PATH="/Users/itoukazuhiro/.codeium/windsurf/bin:$PATH"
+
+#####################################################################
+# fzf設定
+#####################################################################
+__fzf_history_widget() {
+  BUFFER=$(history 1 | fzf --tac --height 40% --reverse | sed 's/ *[0-9]* *//')
+  CURSOR=${#BUFFER}
+  zle redisplay
+}
+zle -N __fzf_history_widget
+bindkey '^R' __fzf_history_widget
+
+
+##############################
+#  yazi setup
+##############################
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
