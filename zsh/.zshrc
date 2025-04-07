@@ -76,8 +76,6 @@ export GOROOT=/opt/homebrew/opt/go/libexec
 export PATH=$PATH:$GOROOT/bin
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="$HOME/.nodenv/bin:$PATH"
-# bunを使えるようにする
-export PATH="$HOME/.bun/bin:$PATH"
 
 # rustのライブラリにパスを通す
 export PATH="$HOME/.cargo/bin:$PATH"
