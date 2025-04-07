@@ -1,0 +1,63 @@
+gui:
+  authorColors: {}
+  branchColors: {}
+  scrollHeight: 2
+  language: 'en'
+  showIcons: true
+  theme:
+    lightTheme: false
+    activeBorderColor:
+      - green
+      - bold
+    inactiveBorderColor:
+      - white
+    optionsTextColor:
+      - blue
+    selectedLineBgColor:
+      - reverse
+    selectedRangeBgColor:
+      - blue
+    cherryPickedCommitBgColor:
+      - cyan
+    cherryPickedCommitFgColor:
+      - blue
+    unstagedChangesColor:
+      - red
+    showListFooter: true
+  showFileTree: true
+  showRandomTip: true
+  showCommandLog: true
+  showBottomLine: true
+  sidePanelWidth: 0.2
+  commandLogSize: 8
+  splitDiff: auto
+git:
+  paging:
+    colorArg: always
+    pager: delta --paging=never
+    useConfig: false
+  merging:
+    manualcommit: false
+    args: ""
+  autofetch: true
+  refresher:
+    refreshInterval: 3
+  branchLogCmd:
+    git log --graph --color=always --abbrev-commit --decorate --date=relative
+    --pretty=medium {{branchName}} --
+  allBranchesLogCmd:
+    git log --graph --all --color=always --abbrev-commit --decorate
+    --date=relative  --pretty=medium
+  log:
+    order: topo-order
+    showGraph: when-maximised
+    showWholeGraph: false
+  diffContextSize: 3
+update:
+  method: prompt
+  days: 14
+refresher:
+  refreshInterval: 10
+  fetchInterval: 60
+os:
+  editCommand: 'nvim'
