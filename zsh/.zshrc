@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 #####################################################################
 # options
 #####################################################################
@@ -40,6 +38,11 @@ alias cat='bat'
 alias ping='prettyping --nolegend'
 alias top="sudo htop"
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+# tree
+alias tree="tree -L 3 -a -I '.git' --charset X "
+alias dtree="tree -L 3 -a -d -I '.git' --charset X "
+# lazygit
+alias lg="lazygit"
 
 #####################################################################
 # 環境変数
@@ -185,9 +188,6 @@ bindkey -e # tmuxでctrl-aとctrl-eが使えない問題の対応
 # startship
 # https://starship.rs/ja-JP/
 eval "$(starship init zsh)"
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 
 # bun completions
 [ -s "/Users/itoukazuhiro/.bun/_bun" ] && source "/Users/itoukazuhiro/.bun/_bun"

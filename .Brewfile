@@ -42,6 +42,7 @@ brew "tree"
 brew "xsv"
 brew "zoxide"
 brew "sqlite3"
+brew "exa"
 
 # GUIアプリ
 cask "google-chrome"
@@ -58,4 +59,3 @@ cask "coteditor"
 cask '1password'
 cask 'gitup'
 cask "raycast"
-cask "fig"
