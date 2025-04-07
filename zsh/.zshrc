@@ -89,7 +89,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 eval "$(direnv hook zsh)"
 eval "$(nodenv init -)"
 # Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [ -x "/opt/homebrew/bin/brew" ] && [ -r "$PWD" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 # zコマンドを使えるように
 eval "$(zoxide init zsh)"
 
