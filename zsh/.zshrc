@@ -211,11 +211,3 @@ fgb() {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# __fzf_history_widget() {
-#   BUFFER=$(history 1 | fzf --tac --height 40% --reverse | sed 's/ *[0-9]* *//')
-#   CURSOR=${#BUFFER}
-#   zle redisplay
-# }
-# zle -N __fzf_history_widget
-# bindkey '^R' __fzf_history_widget
