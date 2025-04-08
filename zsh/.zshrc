@@ -185,6 +185,7 @@ function y() {
 # 1. fzfをインストール
 # 2. ripgをインストール
 # 3. $(brew --prefix)/opt/fzf/install
+# 4. git clone https://github.com/junegunn/fzf-git.sh.git
 # ---------
 if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
   export PATH="$PATH:/usr/local/opt/fzf/bin"
@@ -211,3 +212,5 @@ fgb() {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/fzf-git.sh/fzf-git.sh
