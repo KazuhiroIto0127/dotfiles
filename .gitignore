@@ -13,3 +13,4 @@ lazygit/state.yml
 !.tmux.conf
 #==========
 .tags
+*.log
