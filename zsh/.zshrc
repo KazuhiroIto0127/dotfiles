@@ -184,8 +184,7 @@ function y() {
 # Setup fzf
 # 1. fzfをインストール
 # 2. ripgをインストール
-# 3. $ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-# 4. $ ~/.fzf/install
+# 3. $(brew --prefix)/opt/fzf/install
 # ---------
 if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
   export PATH="$PATH:/usr/local/opt/fzf/bin"
@@ -195,7 +194,7 @@ fi
 [[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
 # Key bindings
 # ------------
-# source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
 # ripgrepを使って検索する
 export FZF_DEFAULT_COMMAND='command rg --files --hidden --follow --no-messages -g "!**/{node_modules,public,bundles,.git,import_data,tmp}/**" -g "!*.log"'
 export FZF_DEFAULT_OPTS="--height 40% --reverse --border --inline-info --ansi"
@@ -213,10 +212,10 @@ fgb() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-__fzf_history_widget() {
-  BUFFER=$(history 1 | fzf --tac --height 40% --reverse | sed 's/ *[0-9]* *//')
-  CURSOR=${#BUFFER}
-  zle redisplay
-}
-zle -N __fzf_history_widget
-bindkey '^R' __fzf_history_widget
+# __fzf_history_widget() {
+#   BUFFER=$(history 1 | fzf --tac --height 40% --reverse | sed 's/ *[0-9]* *//')
+#   CURSOR=${#BUFFER}
+#   zle redisplay
+# }
+# zle -N __fzf_history_widget
+# bindkey '^R' __fzf_history_widget
