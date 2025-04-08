@@ -96,40 +96,6 @@ fi
 eval "$(zoxide init zsh)"
 
 eval "$(rbenv init -)"
-#####################################################################
-# fzf設定
-#####################################################################
-# Setup fzf
-# 1. fzfをインストール
-# 2. ripgをインストール
-# 3. $ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-# 4. $ ~/.fzf/install
-# ---------
-if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-  export PATH="$PATH:/usr/local/opt/fzf/bin"
-fi
-# Auto-completion
-# ---------------
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
-# Key bindings
-# ------------
-# source "/usr/local/opt/fzf/shell/key-bindings.zsh"
-# ripgrepを使って検索する
-export FZF_DEFAULT_COMMAND='command rg --files --hidden --follow --no-messages -g "!**/{node_modules,public,bundles,.git,import_data,tmp}/**" -g "!*.log"'
-export FZF_DEFAULT_OPTS="--height 40% --reverse --border --inline-info --ansi"
-# ctrl-tのときのデフォルトコマンド設定
-export FZF_CTRL_T_COMMAND='command rg --files --hidden --follow --no-messages -g "!**/{node_modules,public,bundles,.git,import_data,tmp}/**" -g "!*.log"'
-
-# fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
-fgb() {
-  local branches branch
-  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
-  branch=$(echo "$branches" |
-           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-}
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #####################################################################
 # Zinit  (プラグイン管理)
@@ -200,18 +166,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # Added by Windsurf
 export PATH="/Users/itoukazuhiro/.codeium/windsurf/bin:$PATH"
 
-#####################################################################
-# fzf設定
-#####################################################################
-__fzf_history_widget() {
-  BUFFER=$(history 1 | fzf --tac --height 40% --reverse | sed 's/ *[0-9]* *//')
-  CURSOR=${#BUFFER}
-  zle redisplay
-}
-zle -N __fzf_history_widget
-bindkey '^R' __fzf_history_widget
-
-
 ##############################
 #  yazi setup
 ##############################
@@ -223,3 +177,46 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+#####################################################################
+# fzf設定
+#####################################################################
+# Setup fzf
+# 1. fzfをインストール
+# 2. ripgをインストール
+# 3. $ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+# 4. $ ~/.fzf/install
+# ---------
+if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
+  export PATH="$PATH:/usr/local/opt/fzf/bin"
+fi
+# Auto-completion
+# ---------------
+[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+# Key bindings
+# ------------
+# source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+# ripgrepを使って検索する
+export FZF_DEFAULT_COMMAND='command rg --files --hidden --follow --no-messages -g "!**/{node_modules,public,bundles,.git,import_data,tmp}/**" -g "!*.log"'
+export FZF_DEFAULT_OPTS="--height 40% --reverse --border --inline-info --ansi"
+# ctrl-tのときのデフォルトコマンド設定
+export FZF_CTRL_T_COMMAND='command rg --files --hidden --follow --no-messages -g "!**/{node_modules,public,bundles,.git,import_data,tmp}/**" -g "!*.log"'
+
+# fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
+fgb() {
+  local branches branch
+  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+__fzf_history_widget() {
+  BUFFER=$(history 1 | fzf --tac --height 40% --reverse | sed 's/ *[0-9]* *//')
+  CURSOR=${#BUFFER}
+  zle redisplay
+}
+zle -N __fzf_history_widget
+bindkey '^R' __fzf_history_widget
