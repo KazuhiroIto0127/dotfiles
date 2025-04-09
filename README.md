@@ -3,13 +3,22 @@ This is my dotfiles.
 ## Filepath
 
 ```
-/dotfiles/
-├── .git
-├── .gitconfig
-├── .gitignore
-├── .gitignore_global
-├── nvim
-├── README.md
-├── dotfilesLink.sh
-└── zsh
+.
+|-- .Brewfile
+|-- .gitconfig
+|-- .gitignore
+|-- .gitignore_global
+|-- README.md
+|-- alacritty
+|-- dotfilesLink.sh
+|-- lazygit
+|-- nvim
+|-- nvim.back
+|-- setup.sh
+|-- tig
+|-- tmux
+|-- tmux-client-13761.log
+|-- wezterm
+|-- yazi
+`-- zsh
 ```
