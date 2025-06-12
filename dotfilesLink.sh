@@ -18,3 +18,4 @@ makeSymLink $(pwd)/.gitignore_global ~/.gitignore_global
 makeSymLink $(pwd)/nvim  ~/.config/nvim
 makeSymLink $(pwd)/tig/.tigrc ~/.tigrc
 makeSymLink $(pwd)/yazi ~/.config/yazi
+makeSymLink $(pwd)/claude  ~/.claude

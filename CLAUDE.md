@@ -33,6 +33,7 @@ brew bundle --file ./.Brewfile
 - **Editor configs**: `nvim/` (current LazyVim setup), `nvim.back/` (legacy Packer setup)  
 - **Shell configs**: `zsh/` - Zsh configuration files
 - **Git configs**: `lazygit/`, `.gitconfig`, `.gitignore_global`
+- **Claude configs**: `claude/` - Claude Code settings and permissions
 - **Other tools**: `tmux/`, `tig/`, `yazi/` - Various CLI tool configurations
 
 ### Neovim Setup
@@ -47,6 +48,7 @@ The `dotfilesLink.sh` script creates symlinks from this repository to standard c
 - `~/.config/nvim` → `nvim/`
 - `~/.config/alacritty` → `alacritty/`
 - `~/.zshrc` → `zsh/.zshrc`
+- `~/.claude` → `claude/` - Global Claude Code settings
 - And other standard XDG/home directory locations
 
 ### Package Management
